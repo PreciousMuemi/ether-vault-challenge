@@ -1,0 +1,109 @@
+{
+	"compiler": {
+		"version": "0.8.30+commit.73712a01"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address payable",
+						"name": "_etherVaultAddress",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "constructor"
+			},
+			{
+				"inputs": [],
+				"name": "REQUIRED_AMOUNT",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "getBalance",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "triggerSelfDestruct",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"details": "A simple contract to receive Ether and then self-destruct, sending its balance to a target address. Used for the EtherVault assignment self-destruct challenge.",
+			"kind": "dev",
+			"methods": {
+				"constructor": {
+					"details": "Constructor sets the target EtherVault address.",
+					"params": {
+						"_etherVaultAddress": "The address of the deployed EtherVault contract."
+					}
+				},
+				"getBalance()": {
+					"details": "Optional: A function to check the contract's current balance."
+				},
+				"triggerSelfDestruct()": {
+					"details": "Triggers the self-destruct mechanism. This sends the contract's entire balance to the etherVaultAddress and removes the contract code from the blockchain (in pre-EIP-6780 behavior). Includes the specific require check required by the assignment. NOTE: 'selfdestruct' is deprecated and its behavior changed with EIP-6780 (Cancun hard fork). For new contracts deployed post-Cancun, it might not fully remove contract code/storage unless created in the same transaction. However, this assignment specifically requires using 'selfdestruct' with a particular error message, indicating it's testing understanding of this concept as relevant to the challenge environment. Therefore, we use 'selfdestruct' here as required by the assignment instructions."
+				}
+			},
+			"title": "SelfDestructSender",
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/SelfDestructSender.sol": "SelfDestructSender"
+		},
+		"evmVersion": "prague",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"contracts/SelfDestructSender.sol": {
+			"keccak256": "0x0f4217d7d7b4c3a09cc34124920d9fda0b2a10108411245937f74175fc55e344",
+			"license": "UNLICENSED",
+			"urls": [
+				"bzz-raw://93359738246f8a40f32a3b6a6f3342234d52700ead1b0046cadf67f1c4657116",
+				"dweb:/ipfs/QmVg8dRWfgngSCEk7yZRdoMxtzDDpRZQVjBxqsPb69KBEa"
+			]
+		}
+	},
+	"version": 1
+}
